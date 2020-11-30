@@ -1,48 +1,110 @@
 {
-  "name": "lolisafe",
-  "version": "3.0.0",
-  "description": "Blazing fast file uploader and awesome bunker written in node! 🚀",
-  "author": "Pitu",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/WeebDev/lolisafe"
-  },
-  "bugs": {
-    "url": "https://github.com/WeebDev/lolisafe/issues"
-  },
-  "engines": {
-    "node": ">=7.0.0"
-  },
-  "license": "MIT",
-  "dependencies": {
-    "bcrypt": "^3.0.4",
-    "body-parser": "^1.18.2",
-    "express": "^4.16.1",
-    "express-handlebars": "^3.0.0",
-    "express-rate-limit": "^2.11.0",
-    "fluent-ffmpeg": "^2.1.2",
-    "helmet": "^3.11.0",
-    "jszip": "^3.1.5",
-    "knex": "^0.14.4",
-    "multer": "^1.3.0",
-    "randomstring": "^1.1.5",
-    "sharp": "^0.21.0",
-    "sqlite3": "^4.0.6"
-  },
-  "devDependencies": {
-    "eslint": "^4.18.2",
-    "eslint-config-aqua": "^1.4.1"
-  },
-  "eslintConfig": {
-    "extends": [
-      "aqua"
-    ],
-    "env": {
-      "browser": true,
-      "node": true
-    },
-    "rules": {
-      "func-names": 0
-    }
-  }
+	"name": "lolisafe",
+	"version": "4.0.0",
+	"description": "Blazing fast file uploader and bunker written in node! 🚀",
+	"license": "MIT",
+	"author": {
+		"name": "Pitu",
+		"email": "heyitspitu@gmail.com",
+		"url": "https://github.com/Pitu"
+	},
+	"scripts": {
+		"setup": "node src/setup.js && yarn build && yarn migrate && yarn seed",
+		"build": "nuxt build",
+		"start": "cross-env NODE_ENV=production node src/api/structures/Server",
+		"dev": "nuxt",
+		"migrate": "yarn knex migrate:latest",
+		"seed": "yarn knex seed:run",
+		"api": "node src/api/structures/Server",
+		"update": "git pull && yarn install && yarn migrate && yarn build && yarn restart",
+		"restart": "pm2 restart lolisafe"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/WeebDev/lolisafe"
+	},
+	"bugs": {
+		"url": "https://github.com/WeebDev/lolisafe/issues"
+	},
+	"engines": {
+		"node": ">=12.0.0"
+	},
+	"dependencies": {
+		"@nuxtjs/axios": "^5.4.1",
+		"adm-zip": "^0.4.13",
+		"bcrypt": "^4.0.1",
+		"body-parser": "^1.18.3",
+		"buefy": "0.8.5",
+		"busboy": "^0.2.14",
+		"chalk": "^2.4.1",
+		"compression": "^1.7.2",
+		"cookie-universal-nuxt": "^2.0.14",
+		"cors": "^2.8.5",
+		"dotenv": "^6.2.0",
+		"dumper.js": "^1.3.1",
+		"express": "^4.16.4",
+		"express-rate-limit": "^3.4.0",
+		"file-saver": "^2.0.1",
+		"flexsearch": "^0.6.22",
+		"fluent-ffmpeg": "^2.1.2",
+		"fs-jetpack": "^2.2.2",
+		"helmet": "^3.15.1",
+		"imagesloaded": "^4.1.4",
+		"jsonwebtoken": "^8.5.0",
+		"knex": "^0.16.3",
+		"moment": "^2.24.0",
+		"multer": "^1.4.1",
+		"mysql": "^2.16.0",
+		"nuxt": "2.12.2",
+		"nuxt-dropzone": "^0.2.8",
+		"one-liner": "^1.3.0",
+		"path": "^0.12.7",
+		"pg": "^7.8.1",
+		"qoa": "^0.2.0",
+		"randomstring": "^1.1.5",
+		"serve-static": "^1.13.2",
+		"sharp": "^0.25.2",
+		"sqlite3": "^4.0.6",
+		"uuid": "^3.3.2",
+		"v-clipboard": "^2.2.1",
+		"vue-axios": "^2.1.4",
+		"vue-isyourpasswordsafe": "^1.0.2",
+		"vue-plyr": "^5.1.0",
+		"vue-timeago": "^3.4.4",
+		"vue2-transitions": "^0.2.3",
+		"vuebar": "^0.0.20"
+	},
+	"devDependencies": {
+		"autoprefixer": "^9.4.7",
+		"babel-eslint": "^10.0.1",
+		"cross-env": "^5.2.0",
+		"eslint": "^5.13.0",
+		"eslint-config-aqua": "^4.4.1",
+		"eslint-plugin-vue": "^5.2.1",
+		"node-sass": "^4.11.0",
+		"nodemon": "^1.19.3",
+		"postcss-css-variables": "^0.11.0",
+		"postcss-nested": "^3.0.0",
+		"sass-loader": "^7.1.0"
+	},
+	"eslintConfig": {
+		"extends": [
+			"aqua/vue",
+			"aqua/node"
+		],
+		"rules": {
+			"vue/attribute-hyphenation": 0,
+			"quote-props": 0
+		}
+	},
+	"keywords": [
+		"lolisafe",
+		"upload",
+		"uploader",
+		"file",
+		"vue",
+		"ssr",
+		"file uploader",
+		"images"
+	]
 }

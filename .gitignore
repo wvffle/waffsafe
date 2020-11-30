@@ -1,14 +1,12 @@
-.DS_Store
-!.gitkeep
+# Packages
 node_modules/
+dist/
+.nuxt/
+
+# Lolisafe specifics
+database.sqlite
 uploads/
-logs/
-database/db
-config.js
-start.json
-npm-debug.log
-pages/custom/**
-migrate.js
-yarn.lock
-package-lock.json
-.vscode/
+.env
+!src/api/routes/uploads
+db
+database.sqlite-journal
